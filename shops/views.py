@@ -2,6 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework  import status
+from django.http import HttpResponseBadRequest
 from shops import serializers
 
 from shops.models import City, Street
@@ -19,10 +20,10 @@ class CityList(APIView):
 class CityDetail(APIView):
 
     def get(self,request, pk, format=None):
-        city = City.objects.get(id = pk)
-        # try except for DoesNotExist
-        streets = Street.objects.filter(city=city)
-        serializer = StreetSerializer(streets, many=True)
-        # Name instead of id!
-        return Response(serializer.data)
-
+        try:
+            city = City.objects.get(id = pk)
+            streets = Street.objects.filter(city=city)
+            serializer = StreetSerializer(streets, many=True)
+            return Response(serializer.data)
+        except City.DoesNotExist:
+            return HttpResponseBadRequest()

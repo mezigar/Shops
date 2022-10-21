@@ -10,6 +10,8 @@ class CitySerializer(serializers.ModelSerializer):
 
 
 class StreetSerializer(serializers.ModelSerializer):
+    city = serializers.StringRelatedField(many=False)
+
     class Meta:
         model =  Street
         fields = ['id', 'name', 'city']
