@@ -4,6 +4,6 @@ from rest_framework.routers import SimpleRouter
 from shops import views
 
 urlpatterns = [
-    path('', views.CityList.as_view()),
-    path('<int:pk>/street/', views.CityDetail.as_view()),
+    path('', views.CityListView.as_view()),
+    path('<int:pk>/street/', views.CityDetailView.as_view()),
 ]

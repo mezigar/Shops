@@ -122,8 +122,6 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_L10N = True
-
 TIME_INPUT_FORMATS = ['%H:%M',]
 
 USE_I18N = True

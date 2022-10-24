@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from shops.views import ShopView
 
 urlpatterns = [
     path('city/', include('shops.urls')),
     path('admin/', admin.site.urls),
+    path('shop/', ShopView.as_view()),
+
 ]
