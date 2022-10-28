@@ -11,4 +11,4 @@ class GetCityApiTestCase(APITestCase):
         response = self.client.get(url)
         serializer_data = CitySerializer([city_1, city_2], many=True).data 
         self.assertEqual(HTTP_200_OK, response.status_code)
-        self.assertEqual(serializer_data, response.data)
+        self.assertEqual(serializer_data, response.data['cities'])
