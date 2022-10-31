@@ -7,8 +7,10 @@
 
 Подготовительные действия:
 1) pip install Django, psycopg2, djangorestframework
-2) Настройка psql в зависимости от платформы с именем ДБ:'shops', юзер:'shop_user', паролем:'postgres'
-
+2) sudo -u postgres psql
+  CREATE DATABASE shops;
+  CREATE USER shop_user WITH PASSWORD 'postgres';
+  GRANT ALL PRIVILEGES ON DATABASE shops TO shop_user;
 Запуск проекта:
 В директории проекта выполнить комманду python3 manage.py runserver
 
